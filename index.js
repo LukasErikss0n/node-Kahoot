@@ -20,14 +20,12 @@ app.post("/creat-room", async (req, res) =>{
 io.on('connection', (socket) => {
   console.log('a user connected');  
   
-  
 })
 
 server.listen(4000, () => {
-  console.log('listening on *:3000');
+  console.log('listening on *:4000');
 });
 
 app.get("/", (req, res) =>{
-    console.log("hello")
-    
+  console.log("hello")  
 })

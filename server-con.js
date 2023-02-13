@@ -11,7 +11,7 @@ async function connection(){
 
 async function room(id){
     const con = await connection()
-    const send = await con.execute("INSERT seassion(seassion_name) VALUES('?')", [id])
+    const send = await con.execute("INSERT seassion(seassion_name) VALUES(?)", [id])
 }
 
 async function answer(input){
