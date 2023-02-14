@@ -1,3 +1,4 @@
+import { engine } from "express-handlebars"
 const bodyParser = require('body-parser');
 const express = require('express');
 const app = express();
@@ -12,9 +13,13 @@ app.use(express.static('public'))
 
 app.post("/creat-room", async (req, res) =>{
     let id = req.body.roomId
-    console.log(req.body)
     let roomId = await db.room(id)
+    res.redirect("/")
 })
+
+app.engine("handlebars", engine())
+app.set("view engine", "handlebars")
+app.set("views", "./views")
 
 
 io.on('connection', (socket) => {
