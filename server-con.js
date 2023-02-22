@@ -15,9 +15,10 @@ async function room(id){
     const send = await con.execute("INSERT seassion(seassion_name) VALUES(?)", [id])
 }
 
-async function answer(input){
+async function allQuizes(input){
     const con = await connection()
-    const result = await con.execute("SELECT * FROM response WHERE seassion_name = ?", [input])
+    const result = await con.execute("SELECT * FROM quiz ")
+    // WHERE seassion_name = ?", [input]
 
     await con.end()
     return result[0]
@@ -25,4 +26,5 @@ async function answer(input){
 
 module.exports = {
     room,
+    allQuizes,
 }
